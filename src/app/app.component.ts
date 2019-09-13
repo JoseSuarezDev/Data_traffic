@@ -24,8 +24,7 @@ export class AppComponent implements OnInit {
                public dialog: MatDialog,
                private _snackBar: MatSnackBar ) {
     service.missionConfirmed$.subscribe(
-      astronaut => {
-        console.log(astronaut);        
+      astronaut => {      
       });
 
     service.dialogAsObservable$.subscribe(
@@ -36,8 +35,7 @@ export class AppComponent implements OnInit {
 
     service.snackBarAsObservable$.subscribe(
       res => {
-        this.openSnackBar('Esta seguro que desea eliminar los items?', 'Si')
-        console.log(res);          
+        this.openSnackBar('Esta seguro que desea eliminar los items?', 'Si')    
       });
   }
   
@@ -75,8 +73,7 @@ export class AppComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {duration: 2000}).onAction().subscribe(() => {
-      console.log('The snack-bar action was triggered!');      
+    this._snackBar.open(message, action, {duration: 2000}).onAction().subscribe(() => {     
       localStorage.setItem('selected', '')
       this.service.announceMission('products');
     });

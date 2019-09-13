@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
-import { Subscription } from 'rxjs';
 
 export interface Food {
   value: string;
@@ -41,7 +40,6 @@ export class ButtonsComponent implements OnInit {
   }
 
   change(value) {
-    // this.store.getItems(value.toLowerCase()).subscribe(); 
     this.store.confirmMission(value.toLowerCase());      
   }
 

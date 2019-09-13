@@ -2,8 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/services/store.service';
-import { MatTableDataSource } from '@angular/material';
-import { state } from '@angular/animations';
 
 export interface DialogData {
   animal: string;
@@ -31,16 +29,13 @@ export class ModalComponent implements OnInit {
             name: 'Todd Motto',
             stock: 0,
             proveedor: 'Todd Motto'            
-          });
-          console.log(astronaut);        
+          });       
         });
 
 
     }
 
   ngOnInit() {
-
-console.log(this.data)
 
     this.forma = new FormGroup({
       'name': new FormControl( '', Validators.required ),
