@@ -1,0 +1,20 @@
+<div>
+
+  <mat-form-field>
+    <mat-label>Tipo</mat-label>
+    <mat-select [value]="foods[0].value" (valueChange)="change($event)">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<div class="buttons">
+
+    <button mat-raised-button (click)="openDialog('crear')" >Crear</button>
+    <button mat-raised-button [disabled]="active != 1" (click)="openDialog('editar')">Editar</button>
+    <button mat-raised-button (click)="delete()">Eliminar</button>
+
+</div>

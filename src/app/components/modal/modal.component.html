@@ -1,0 +1,53 @@
+<!-- <div>
+
+  <h1 mat-dialog-title>Hi {{data.name}}</h1>
+  <div mat-dialog-content>
+    <p>What's your favorite animal?</p>
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  </div>
+
+</div> -->
+
+<div>
+  <h4 class="card-title">Agregar Producto</h4>
+
+  <form [formGroup]="forma" >
+
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput 
+                 placeholder="Nombre" 
+                 formControlName="name"
+                 name="name">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input matInput 
+                   type="number" 
+                   placeholder="Stock"
+                   formControlName="stock"
+                   name="stock">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-select placeholder="Proveedor" 
+                      formControlName="proveedor"
+                      name="proveedor">
+            <mat-option value="Senor Carlos">Senor Carlos</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div mat-dialog-actions>
+        <button mat-button type="button" (click)="onNoClick()">No Thanks</button>
+        <button [disabled]="!forma.valid" mat-button [mat-dialog-close]="forma.value" cdkFocusInitial>Ok</button>
+      </div>
+    
+    </form>
+</div>
