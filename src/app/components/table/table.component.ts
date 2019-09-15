@@ -29,7 +29,7 @@ export class TableComponent implements OnInit {
 
   subscription: Subscription;
 
-  displayedColumns: string[] = ['select', 'id', 'name', 'stock', 'proveedor'];
+  displayedColumns: string[] = ['select', 'numRef', 'name', 'stock', 'proveedor'];
   dataSource: MatTableDataSource<ProductData>;
   selection = new SelectionModel<any>(true, []);
 
@@ -39,8 +39,23 @@ export class TableComponent implements OnInit {
 
   constructor(  private service: StoreService ) {
     service.missionConfirmed$.subscribe(
-      astronaut => {      
-        this.dataSource = new MatTableDataSource(this.service.getItems(astronaut));
+      astronaut => {   
+        console.log(astronaut);        
+        this.selection.clear()
+        switch (astronaut) {
+          case 'tiendas':            
+            this.displayedColumns = ['select', 'state' , 'name', 'rif'];        
+            this.dataSource = new MatTableDataSource(this.service.getItems(astronaut));
+            break;
+          case 'proveedores':            
+            this.displayedColumns = ['select', 'name' , 'name'];    
+            break;    
+          default:            
+            this.displayedColumns = ['select', 'numRef', 'name', 'stock', 'proveedor'];
+            this.dataSource = new MatTableDataSource(this.service.getItems(astronaut));
+        }
+           
+        
       });
 
     service.dialogAsObservable$.subscribe(
