@@ -48,7 +48,8 @@ export class TableComponent implements OnInit {
             this.dataSource = new MatTableDataSource(this.service.getItems(astronaut));
             break;
           case 'proveedores':            
-            this.displayedColumns = ['select', 'name' , 'name'];    
+            this.displayedColumns = ['select', 'name' , 'typeProducts'];             
+            this.dataSource = new MatTableDataSource(this.service.getItems(astronaut));   
             break;    
           default:            
             this.displayedColumns = ['select', 'numRef', 'name', 'stock', 'proveedor'];
@@ -77,7 +78,8 @@ export class TableComponent implements OnInit {
 
         })    
         this.dataSource = new MatTableDataSource(array);
-        this.isAllSelected()
+        this.selection.clear()
+        
         
       });
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));

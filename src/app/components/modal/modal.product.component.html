@@ -22,10 +22,14 @@
         <mat-form-field>
           <mat-select placeholder="Proveedor" 
                       formControlName="proveedor"
-                      name="proveedor">
-            <mat-option value="Senor Carlos">Senor Carlos</mat-option>
+                      name="proveedor"
+                      [value]="foods[0].value">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
+
       </div>
 
       <div mat-dialog-actions>

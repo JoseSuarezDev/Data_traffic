@@ -49,6 +49,12 @@
         <td mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
 
+      <!-- Name Column -->
+      <ng-container matColumnDef="typeProducts">
+        <th mat-header-cell *matHeaderCellDef> Tip Prod. </th>
+        <td mat-cell *matCellDef="let row"> {{row.typeProducts}} </td>
+      </ng-container>
+
       <!-- Proveedor Column -->
       <ng-container matColumnDef="state">
         <th mat-header-cell *matHeaderCellDef> Estado </th>

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/services/store.service';
+import { Food } from '../buttons/buttons.component';
 
 export interface DialogData {
   animal: string;
@@ -10,13 +11,20 @@ export interface DialogData {
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
+  templateUrl: './modal.product.component.html',
   styleUrls: ['./modal.component.css']
 })
 
 export class ModalComponent implements OnInit {
 
   forma: FormGroup;
+
+  foods: Food[] = [
+    {value: 'Products', viewValue: 'Productos'},
+    {value: 'Tiendas', viewValue: 'Tiendas'},
+    {value: 'Proveedores', viewValue: 'Proveedores'},
+    {value: 'Stock', viewValue: 'Stock'},
+  ];
 
   constructor(
     private store: StoreService,
